@@ -4,6 +4,7 @@ import 'package:arnima/screens/add_screen.dart';
 import 'firebase_options.dart';
 import 'screens/idea_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/signup_screen.dart';
 
 void main() async {
   // TODO: 1. Flutter bindings and Firebase Initialization
@@ -34,10 +35,11 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       // home: MyHomePage(title: "Idea Board"), //You Have to Remove this first
       // TODO: 2. Change this to Routes
-      initialRoute: 'login',
+      initialRoute: '/login',
       routes: {
-        'login': (context) => const LoginScreen(),
-        '/': (context) => MyHomePage(title: "Arnima"),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignUpScreen(),
+        '/home': (context) => MyHomePage(title: "Arnima"),
         '/add': (context) => AddScreen(),
       },
     );

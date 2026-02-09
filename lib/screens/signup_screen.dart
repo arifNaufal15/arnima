@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final _usernameController = TextEditingController();
+class _SignUpScreenState extends State<SignUpScreen> {
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    _usernameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
-  void _handleLogin() {
+  void _handleSignUp() {
     if (_formKey.currentState!.validate()) {
-      // TODO: Implement login logic
-      debugPrint('Login with: ${_usernameController.text}');
+      // TODO: Implement sign up logic
+      debugPrint('Sign up with: ${_emailController.text}');
       
-      // Navigate to home page after successful login
+      // Navigate to home page after successful sign up
       Navigator.pushReplacementNamed(context, '/home');
     }
   }
 
-  void _handleSocialLogin(String provider) {
-    // TODO: Implement social login
-    debugPrint('Login with $provider');
+  void _handleSocialSignUp(String provider) {
+    // TODO: Implement social sign up
+    debugPrint('Sign up with $provider');
   }
 
   @override
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 40),
 
-                // Login Form Card
+                // Sign Up Form Card
                 Container(
                   constraints: const BoxConstraints(maxWidth: 400),
                   padding: const EdgeInsets.all(32.0),
@@ -76,9 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // "Log in" Title
+                        // "Sign in" Title
                         Text(
-                          'Log in',
+                          'sign in',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -88,11 +88,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 32),
 
-                        // Username Field
+                        // Email Field
                         TextFormField(
-                          controller: _usernameController,
+                          controller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
-                            hintText: 'Username',
+                            hintText: 'Email',
                             hintStyle: TextStyle(
                               color: const Color(0xFF5A7C5A),
                               fontWeight: FontWeight.w500,
@@ -110,7 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter username';
+                              return 'Please enter email';
+                            }
+                            if (!value.contains('@')) {
+                              return 'Please enter a valid email';
                             }
                             return null;
                           },
@@ -142,6 +146,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (value == null || value.isEmpty) {
                               return 'Please enter password';
                             }
+                            if (value.length < 6) {
+                              return 'Password must be at least 6 characters';
+                            }
                             return null;
                           },
                         ),
@@ -164,11 +171,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 8),
 
-                        // Login Button
+                        // Sign In Button
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: _handleLogin,
+                            onPressed: _handleSignUp,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF5A7C5A),
                               padding: const EdgeInsets.symmetric(vertical: 14),
@@ -177,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             child: const Text(
-                              'Log in',
+                              'Sign in',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
@@ -188,9 +195,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 16),
 
-                        // "or log in with"
+                        // "or Sign in with"
                         const Text(
-                          'or log in with',
+                          'or Sign in with',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.black54,
@@ -198,34 +205,34 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Social Login Buttons
+                        // Social Sign Up Buttons
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            _SocialLoginButton(
+                            _SocialSignUpButton(
                               icon: Icons.g_mobiledata,
-                              onPressed: () => _handleSocialLogin('Google'),
+                              onPressed: () => _handleSocialSignUp('Google'),
                             ),
                             const SizedBox(width: 12),
-                            _SocialLoginButton(
+                            _SocialSignUpButton(
                               icon: Icons.apple,
-                              onPressed: () => _handleSocialLogin('Apple'),
+                              onPressed: () => _handleSocialSignUp('Apple'),
                             ),
                             const SizedBox(width: 12),
-                            _SocialLoginButton(
+                            _SocialSignUpButton(
                               icon: Icons.facebook,
-                              onPressed: () => _handleSocialLogin('Facebook'),
+                              onPressed: () => _handleSocialSignUp('Facebook'),
                             ),
                           ],
                         ),
                         const SizedBox(height: 32),
 
-                        // Sign up link
+                        // Log in link
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              'Not log in yet? ',
+                              'already sign up? ',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.black54,
@@ -233,11 +240,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                // Navigate to sign up screen
-                                Navigator.pushReplacementNamed(context, '/signup');
+                                // Navigate back to login screen
+                                Navigator.pushReplacementNamed(context, '/login');
                               },
                               child: const Text(
-                                'Sign up',
+                                'Log in',
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Color(0xFF5A7C5A),
@@ -260,11 +267,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-class _SocialLoginButton extends StatelessWidget {
+class _SocialSignUpButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
 
-  const _SocialLoginButton({
+  const _SocialSignUpButton({
     required this.icon,
     required this.onPressed,
   });
