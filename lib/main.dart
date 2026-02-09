@@ -34,8 +34,9 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       // home: MyHomePage(title: "Idea Board"), //You Have to Remove this first
       // TODO: 2. Change this to Routes
-      initialRoute: '/',
+      initialRoute: 'login',
       routes: {
+        'login': (context) => const LoginScreen(),
         '/': (context) => MyHomePage(title: "Arnima"),
         '/add': (context) => AddScreen(),
       },
