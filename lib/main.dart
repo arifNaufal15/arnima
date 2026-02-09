@@ -5,6 +5,7 @@ import 'firebase_options.dart';
 import 'screens/idea_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
+import 'screens/home_screen.dart';
 
 void main() async {
   // TODO: 1. Flutter bindings and Firebase Initialization
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
         '/home': (context) => MyHomePage(title: "Arnima"),
+        '/home2': (context) => const HomeScreen(),
         '/add': (context) => AddScreen(),
       },
     );
