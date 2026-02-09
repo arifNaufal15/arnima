@@ -46,18 +46,13 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo
-                Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFB8D88E), // Light green circle
-                    shape: BoxShape.circle,
-                  ),
+                SizedBox(
+                  width: 130,
+                  height: 130,
                   child: Center(
                     child: Image.asset(
                       'assets/images/logo.png',
-                      width: 80,
-                      height: 80,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -170,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: ElevatedButton(
                             onPressed: _handleLogin,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF5A7C5A),
+                              backgroundColor: const Color(0xFF587843),
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
@@ -181,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                                color: Color(0xFFABCBBA),
                               ),
                             ),
                           ),
@@ -225,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              'Not log in yet? ',
+                              'not log in yet? ',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.black54,

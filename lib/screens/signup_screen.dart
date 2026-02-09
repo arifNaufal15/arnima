@@ -46,18 +46,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Logo
-                Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFB8D88E), // Light green circle
-                    shape: BoxShape.circle,
-                  ),
+                SizedBox(
+                  width: 130,
+                  height: 130,
                   child: Center(
                     child: Image.asset(
                       'assets/images/logo.png',
-                      width: 80,
-                      height: 80,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -76,9 +71,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        // "Sign in" Title
+                        // "Sign up" Title
                         Text(
-                          'sign in',
+                          'Sign up',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -177,18 +172,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: ElevatedButton(
                             onPressed: _handleSignUp,
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF5A7C5A),
+                              backgroundColor: const Color(0xFF587843),
                               padding: const EdgeInsets.symmetric(vertical: 14),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                             child: const Text(
-                              'Sign in',
+                              'Sign up',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                                color: Color(0xFFABCBBA),
                               ),
                             ),
                           ),
@@ -197,7 +192,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                         // "or Sign in with"
                         const Text(
-                          'or Sign in with',
+                          'or sign up with',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.black54,
