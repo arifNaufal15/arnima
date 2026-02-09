@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
       debugPrint('Login with: ${_usernameController.text}');
       
       // Navigate to home page after successful login
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/home2');
     }
   }
 
@@ -86,6 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Username Field
                         TextFormField(
                           controller: _usernameController,
+                          style: TextStyle(
+                            color: const Color(0xFF5A7C5A),
+                            fontWeight: FontWeight.w500,
+                          ),
                           decoration: InputDecoration(
                             hintText: 'Username',
                             hintStyle: TextStyle(
@@ -116,6 +120,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           controller: _passwordController,
                           obscureText: true,
+                          style: TextStyle(
+                            color: const Color(0xFF5A7C5A),
+                            fontWeight: FontWeight.w500,
+                          ),
                           decoration: InputDecoration(
                             hintText: 'Password',
                             hintStyle: TextStyle(

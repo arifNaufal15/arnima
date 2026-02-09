@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
         '/home': (context) => MyHomePage(title: "Arnima"),
-        '/home2': (context) => const HomeScreen(),
+        '/home2': (context) => HomeScreen(),
         '/add': (context) => AddScreen(),
       },
     );

@@ -86,6 +86,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         // Email Field
                         TextFormField(
                           controller: _emailController,
+                          style: TextStyle(
+                            color: const Color(0xFF5A7C5A),
+                            fontWeight: FontWeight.w500,
+                          ),
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             hintText: 'Email',
@@ -120,6 +124,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         TextFormField(
                           controller: _passwordController,
                           obscureText: true,
+                          style: TextStyle(
+                            color: const Color(0xFF5A7C5A),
+                            fontWeight: FontWeight.w500,
+                          ),
                           decoration: InputDecoration(
                             hintText: 'Password',
                             hintStyle: TextStyle(
